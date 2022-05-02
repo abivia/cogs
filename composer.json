@@ -1,0 +1,33 @@
+{
+  "name": "abivia/cogs",
+  "type": "library",
+  "description": "Interfaces for Connectable Real World Entities.",
+  "keywords": [
+    "abivia"
+  ],
+  "authors": [
+    {
+      "name": "Alan Langford",
+      "email": "foss@abivia.com",
+      "homepage": "https://foss.abivia.com",
+      "role": "Developer"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Abivia\\Cogs\\": "src/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
+
