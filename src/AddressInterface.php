@@ -2,6 +2,8 @@
 
 namespace Abivia\Cogs;
 
+use UnitEnum;
+
 /**
  * Interface for international postal addresses.
  *
