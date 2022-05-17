@@ -15,7 +15,14 @@ interface PartyInterface {
      *
      * @return Traversable A list of related AddressInterface, with the address function as the key.
      */
-    public function addresses(): Traversable;
+    public function addressList(): Traversable;
+
+    /**
+     * Get all the channels associated with this Party.
+     *
+     * @return Traversable A list of [name, type, address].
+     */
+    public function channelList(): Traversable;
 
     /**
      * Get the composite name of the party.
@@ -34,7 +41,7 @@ interface PartyInterface {
      * Get the components of the name [component type, component value]
      * @return Traversable
      */
-    public function names(): Traversable;
+    public function nameList(): Traversable;
 
     /**
      * Get a list of parties related to this party
@@ -42,7 +49,7 @@ interface PartyInterface {
      * @param PartyType|null $filter
      * @return Traversable A list of [relationship type, party identifier].
      */
-    public function relationships(?PartyType $filter): Traversable;
+    public function relationshipList(?PartyType $filter): Traversable;
 
     /**
      * Retrieve the party specified by the id parameter.

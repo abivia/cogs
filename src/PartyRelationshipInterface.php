@@ -98,6 +98,4 @@ interface PartyRelationshipInterface {
      */
     public function toPartyId(): mixed;
 
-    public function type(): UnitEnum;
-
 }

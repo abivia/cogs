@@ -5,12 +5,13 @@ namespace Abivia\Cogs;
 
 use DateTimeInterface;
 use Traversable;
+use UnitEnum;
 
 interface InvoiceInterface
 {
     /**
      * The current balance due.
-     * @return string A BCD string in the invoice's currency.
+     * @return string A decimal string in the invoice's currency.
      */
     public function balance(): string;
 
@@ -38,7 +39,7 @@ interface InvoiceInterface
      * Discounts/coupons that have been applied to or are available for the invoice.
      * @return Traversable
      */
-    public function discounts(): Traversable;
+    public function discountList(): Traversable;
 
     /**
      * The date when payment is due.
@@ -51,7 +52,7 @@ interface InvoiceInterface
      * info (eg. transaction id)
      * @return Traversable
      */
-    public function history(): Traversable;
+    public function historyList(): Traversable;
 
     /**
      * Get the unique identifier for this invoice.
@@ -88,18 +89,26 @@ interface InvoiceInterface
     public function refundDate(): ?DateTimeInterface;
 
     /**
+     * Retrieve the invoice specified by the id parameter.
+     *
+     * @param mixed $id
+     * @return InvoiceInterface|null Null if no Invoice with this ID is found.
+     */
+    static public function retrieve(mixed $id): ?InvoiceInterface;
+
+    /**
      * Get the shipping charges applied to this invoice.
      * @return Traversable Contains [method, shipping ID, amount]
      */
-    public function shipping(): Traversable;
+    public function shippingList(): Traversable;
 
     public function shipTo(): PartyInterface;
 
     /**
-     * The current generation/payment state
-     * @return string
+     * The current generation/payment status
+     * @return UnitEnum
      */
-    public function state(): string;
+    public function status(): UnitEnum;
 
     /**
      * The total of all line items in the invoice.
@@ -111,7 +120,7 @@ interface InvoiceInterface
      * Get the taxes applied to this invoice.
      * @return Traversable A list of TaxRate elements
      */
-    public function taxes(): Traversable;
+    public function taxList(): Traversable;
 
     /**
      * The invoice total.
@@ -123,6 +132,6 @@ interface InvoiceInterface
      * A list of transactions applied to the invoice (payment, discount, credit, etc).
      * @return Traversable
      */
-    public function transactions(): Traversable;
+    public function transactionList(): Traversable;
 
 }
