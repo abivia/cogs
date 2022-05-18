@@ -2,6 +2,7 @@
 
 namespace Abivia\Cogs;
 
+use DateTimeInterface;
 use UnitEnum;
 
 /**
@@ -60,6 +61,13 @@ interface AddressInterface
     public function dependentLocality(): string;
 
     /**
+     * The date that the address becomes in effect.
+     *
+     * @return DateTimeInterface
+     */
+    public function effectiveDate(): DateTimeInterface;
+
+    /**
      * A unique identifier for this address.
      *
      * @return mixed
@@ -88,6 +96,13 @@ interface AddressInterface
     public function locality(): string;
 
     /**
+     * The name of the relationship (primary, billing, shipping, technical, admin, etc.)
+     *
+     * @return string
+     */
+    public function name(): string;
+
+    /**
      * Gets the postal code.
      *
      * The value is often alphanumeric.
@@ -112,5 +127,11 @@ interface AddressInterface
      * @return string The sorting code.
      */
     public function sortingCode(): string;
+
+    /**
+     * The state of the relationship (eg. active, former)
+     * @return UnitEnum
+     */
+    public function status(): UnitEnum;
 
 }
