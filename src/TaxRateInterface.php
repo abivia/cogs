@@ -11,6 +11,11 @@ use DateTimeInterface;
 interface TaxRateInterface
 {
     /**
+     * For hierarchical taxes, determines if this tax is compounded with previous taxes.
+     * @return bool
+     */
+    public function compound(): bool;
+    /**
      * The date that the tax was discontinued or was suspended, if any.
      *
      * @return DateTimeInterface|null
@@ -31,7 +36,7 @@ interface TaxRateInterface
 
     /**
      * Get the tax rate
-     * @return string A BCD coded string.
+     * @return string A decimal coded string.
      */
     public function rate(): string;
 
@@ -41,6 +46,12 @@ interface TaxRateInterface
      * @return TaxRateInterface|null
      */
     public static function retrieve(mixed $id): ?TaxRateInterface;
+
+    /**
+     * The tax application sequence for hierarchical taxes
+     * @return int
+     */
+    public function sequence(): int;
 
     /**
      * When the tax is effective.
