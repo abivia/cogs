@@ -46,10 +46,10 @@ interface PartyInterface {
     /**
      * Get a list of parties related to this party
      *
-     * @param PartyType|null $filter
+     * @param mixed|null $filter Relationship selector (scalar or array)
      * @return Traversable A list of [relationship type, party identifier].
      */
-    public function relationshipList(?PartyType $filter): Traversable;
+    public function relationshipList(mixed $filter = []): Traversable;
 
     /**
      * Retrieve the party specified by the id parameter.
