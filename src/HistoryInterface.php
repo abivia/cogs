@@ -43,7 +43,7 @@ interface HistoryInterface
      * Retrieve the party specified by the id parameter.
      *
      * @param mixed $id
-     * @return HistoryInterface|null Null if no Party with this ID is found.
+     * @return HistoryInterface|null Null if no History with this ID is found.
      */
     static public function retrieve(mixed $id): ?HistoryInterface;
 
