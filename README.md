@@ -12,6 +12,12 @@ conform to these interfaces.
 
 Suggestions, comments, and contributions are welcome.
 
+## Installation
+
+Via composer:
+
+```composer require abivia/cogs```
+
 ## Enums
 
 ### InvoiceTransactionType
