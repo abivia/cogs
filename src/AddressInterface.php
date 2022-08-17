@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUnused */
 
 namespace Abivia\Cogs;
 
@@ -21,21 +22,27 @@ interface AddressInterface extends AddressProperties
      *
      * @return DateTimeInterface
      */
-    public function effectiveDate(): DateTimeInterface;
+    public function getEffectiveDate(): DateTimeInterface;
 
     /**
      * A unique identifier for this address.
      *
      * @return mixed
      */
-    public function id(): mixed;
+    public function getId(): mixed;
 
     /**
      * The name of the relationship (primary, billing, shipping, technical, admin, etc.)
      *
      * @return string
      */
-    public function name(): string;
+    public function getName(): string;
+
+    /**
+     * The state of the relationship (eg. active, former)
+     * @return UnitEnum
+     */
+    public function getStatus(): UnitEnum;
 
     /**
      * Retrieve the address specified by the id parameter.
@@ -44,11 +51,5 @@ interface AddressInterface extends AddressProperties
      * @return AddressInterface|null Null if no AddressInterface with this ID is found.
      */
     static public function retrieve(mixed $id): ?AddressInterface;
-
-    /**
-     * The state of the relationship (eg. active, former)
-     * @return UnitEnum
-     */
-    public function status(): UnitEnum;
 
 }

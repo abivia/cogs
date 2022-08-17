@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUnused */
 
 namespace Abivia\Cogs;
 
@@ -17,14 +18,14 @@ interface AddressProperties
      *
      * @return string|null The first line of the address block.
      */
-    public function addressLine1(): ?string;
+    public function getAddressLine1(): ?string;
 
     /**
      * Gets the second line of address block.
      *
      * @return string|null The second line of the address block.
      */
-    public function addressLine2(): ?string;
+    public function getAddressLine2(): ?string;
 
     /**
      * Gets the administrative area.
@@ -35,7 +36,7 @@ interface AddressProperties
      * @return string|null The administrative area. A subdivision code if there
      *                are predefined subdivision at this level.
      */
-    public function administrativeArea(): ?string;
+    public function getAdministrativeArea(): ?string;
 
     /**
      * Gets the two-letter country code.
@@ -45,7 +46,7 @@ interface AddressProperties
      *
      * @return string|null The two-letter country code.
      */
-    public function countryCode(): ?string;
+    public function getCountryCode(): ?string;
 
     /**
      * Gets the dependent locality (i.e neighbourhood).
@@ -57,7 +58,7 @@ interface AddressProperties
      * @return string|null The administrative area. A subdivision code if there
      *                are predefined subdivisions at this level.
      */
-    public function dependentLocality(): ?string;
+    public function getDependentLocality(): ?string;
 
     /**
      * Gets the locale.
@@ -67,7 +68,7 @@ interface AddressProperties
      *
      * @return string|null The locale.
      */
-    public function locale(): ?string;
+    public function getLocale(): ?string;
 
     /**
      * Gets the locality (i.e. city).
@@ -78,7 +79,7 @@ interface AddressProperties
      * @return string|null The administrative area. A subdivision code if there
      *                are predefined subdivision at this level.
      */
-    public function locality(): ?string;
+    public function getLocality(): ?string;
 
     /**
      * Gets the postal code.
@@ -87,7 +88,7 @@ interface AddressProperties
      *
      * @return string|null The postal code.
      */
-    public function postalCode(): ?string;
+    public function getPostalCode(): ?string;
 
     /**
      * Gets the sorting code.
@@ -96,6 +97,6 @@ interface AddressProperties
      *
      * @return string|null The sorting code.
      */
-    public function sortingCode(): ?string;
+    public function getSortingCode(): ?string;
 
 }

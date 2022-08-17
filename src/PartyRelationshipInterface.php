@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUnused */
 declare(strict_types=1);
 
 namespace Abivia\Cogs;
@@ -11,42 +12,43 @@ use UnitEnum;
  *
  * Based on the OASIS CIQ TC - extensible Party Relationships Language (xPRL) version 3.0
  */
-interface PartyRelationshipInterface {
+interface PartyRelationshipInterface
+{
 
     /**
      * The date that the relationship ended or was suspended, if any.
      *
      * @return DateTimeInterface|null
      */
-    public function endDate(): ?DateTimeInterface;
+    public function getEndDate(): ?DateTimeInterface;
 
     /**
      * The reason for the relationship ending or being suspended (if any).
      *
      * @return string|null
      */
-    public function endReason(): ?string;
+    public function getEndReason(): ?string;
 
     /**
      * The ID of the party this relationship is from.
      *
      * @return mixed
      */
-    public function fromPartyId(): mixed;
+    public function getFromPartyId(): mixed;
 
     /**
      * Get the relationship's unique identifier.
      *
      * @return mixed
      */
-    public function id(): mixed;
+    public function getId(): mixed;
 
     /**
      * The priority (strength of relationship) between the parties.
      *
      * @return UnitEnum
      */
-    public function priority(): UnitEnum;
+    public function getPriority(): UnitEnum;
 
     /**
      * A hierarchical relativity between the parties. Positive when the fromParty has a higher
@@ -54,7 +56,41 @@ interface PartyRelationshipInterface {
      *
      * @return int|null
      */
-    public function relativity(): ?int;
+    public function getRelativity(): ?int;
+
+    /**
+     * The name of the relationship from the fromParty to the toParty.
+     *
+     * @return UnitEnum
+     */
+    public function getRole(): UnitEnum;
+
+    /**
+     * When the relationship was established, if known.
+     *
+     * @return DateTimeInterface|null
+     */
+    public function getStartDate(): ?DateTimeInterface;
+
+    /**
+     * The reason for establishing the relationship, if known.
+     *
+     * @return string|null
+     */
+    public function getStartReason(): ?string;
+
+    /**
+     * The state of the relationship (eg. active, terminated, potential, etc.)
+     * @return UnitEnum
+     */
+    public function getStatus(): UnitEnum;
+
+    /**
+     * The ID of the party this relationship is to.
+     *
+     * @return mixed
+     */
+    public function getToPartyId(): mixed;
 
     /**
      * Retrieve the relationship specified by the id parameter.
@@ -63,39 +99,5 @@ interface PartyRelationshipInterface {
      * @return PartyRelationshipInterface|null Null if no PartyRelationship with this ID is found.
      */
     static public function retrieve(mixed $id): ?PartyRelationshipInterface;
-
-    /**
-     * The name of the relationship from the fromParty to the toParty.
-     *
-     * @return UnitEnum
-     */
-    public function role(): UnitEnum;
-
-    /**
-     * When the relationship was established, if known.
-     *
-     * @return DateTimeInterface|null
-     */
-    public function startDate(): ?DateTimeInterface;
-
-    /**
-     * The reason for establishing the relationship, if known.
-     *
-     * @return string|null
-     */
-    public function startReason(): ?string;
-
-    /**
-     * The state of the relationship (eg. active, terminated, potential, etc.)
-     * @return UnitEnum
-     */
-    public function status(): UnitEnum;
-
-    /**
-     * The ID of the party this relationship is to.
-     *
-     * @return mixed
-     */
-    public function toPartyId(): mixed;
 
 }

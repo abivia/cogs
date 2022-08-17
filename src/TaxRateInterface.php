@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUnused */
 declare(strict_types=1);
 
 namespace Abivia\Cogs;
@@ -14,31 +15,45 @@ interface TaxRateInterface
      * For hierarchical taxes, determines if this tax is compounded with previous taxes.
      * @return bool
      */
-    public function compound(): bool;
+    public function getCompound(): bool;
+
     /**
      * The date that the tax was discontinued or was suspended, if any.
      *
      * @return DateTimeInterface|null
      */
-    public function endDate(): ?DateTimeInterface;
+    public function getEndDate(): ?DateTimeInterface;
 
     /**
      * Get the unique identifier for this tax rate.
      * @return mixed
      */
-    public function id(): mixed;
+    public function getId(): mixed;
 
     /**
      * Get the display name of the tax.
      * @return string
      */
-    public function name(): string;
+    public function getName(): string;
 
     /**
      * Get the tax rate
      * @return string A decimal coded string.
      */
-    public function rate(): string;
+    public function getRate(): string;
+
+    /**
+     * The tax application sequence for hierarchical taxes
+     * @return int
+     */
+    public function getSequence(): int;
+
+    /**
+     * When the tax is effective.
+     *
+     * @return DateTimeInterface
+     */
+    public function getStartDate(): DateTimeInterface;
 
     /**
      * Get a tax rate by ID
@@ -46,18 +61,5 @@ interface TaxRateInterface
      * @return TaxRateInterface|null
      */
     public static function retrieve(mixed $id): ?TaxRateInterface;
-
-    /**
-     * The tax application sequence for hierarchical taxes
-     * @return int
-     */
-    public function sequence(): int;
-
-    /**
-     * When the tax is effective.
-     *
-     * @return DateTimeInterface
-     */
-    public function startDate(): DateTimeInterface;
 
 }
