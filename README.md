@@ -87,3 +87,9 @@ a specific tax amount is payable.
 ### TaxRateInterface
 
 A Tax Rate is an amount of tax that will be applied to a transaction.
+
+## Donations welcome
+
+If you're getting something out of Cogs, you can sponsor us in any amount you wish using Liberapay
+Liberapay is itself run on donations and charges no fees beyond bank charges.
+[![Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/abivia/donate)
