@@ -40,9 +40,9 @@ interface AddressInterface extends AddressProperties
 
     /**
      * The state of the relationship (eg. active, former)
-     * @return UnitEnum
+     * @return UnitEnum|string
      */
-    public function getStatus(): UnitEnum;
+    public function getStatus(): UnitEnum|string;
 
     /**
      * Retrieve the address specified by the id parameter.

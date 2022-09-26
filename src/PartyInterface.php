@@ -54,10 +54,11 @@ interface PartyInterface
     public function getRelationshipList(mixed $filter = []): Traversable;
 
     /**
+     * Get the party's current status.
      *
-     * @return UnitEnum
+     * @return UnitEnum|string
      */
-    public function getStatus(): UnitEnum;
+    public function getStatus(): UnitEnum|string;
 
     /**
      * Get the underlying type of the Party (peson or organization)

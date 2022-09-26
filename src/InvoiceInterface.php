@@ -99,9 +99,9 @@ interface InvoiceInterface
 
     /**
      * The current generation/payment status
-     * @return UnitEnum
+     * @return UnitEnum|string
      */
-    public function getStatus(): UnitEnum;
+    public function getStatus(): UnitEnum|string;
 
     /**
      * The total of all line items in the invoice.

@@ -46,9 +46,9 @@ interface PartyRelationshipInterface
     /**
      * The priority (strength of relationship) between the parties.
      *
-     * @return UnitEnum
+     * @return UnitEnum|string
      */
-    public function getPriority(): UnitEnum;
+    public function getPriority(): UnitEnum|string;
 
     /**
      * A hierarchical relativity between the parties. Positive when the fromParty has a higher
@@ -61,9 +61,9 @@ interface PartyRelationshipInterface
     /**
      * The name of the relationship from the fromParty to the toParty.
      *
-     * @return UnitEnum
+     * @return UnitEnum|string
      */
-    public function getRole(): UnitEnum;
+    public function getRole(): UnitEnum|string;
 
     /**
      * When the relationship was established, if known.
@@ -81,9 +81,9 @@ interface PartyRelationshipInterface
 
     /**
      * The state of the relationship (eg. active, terminated, potential, etc.)
-     * @return UnitEnum
+     * @return UnitEnum|string
      */
-    public function getStatus(): UnitEnum;
+    public function getStatus(): UnitEnum|string;
 
     /**
      * The ID of the party this relationship is to.
